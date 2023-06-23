@@ -2,7 +2,6 @@ import * as React from 'react';
 import Svg, {Path, SvgProps} from 'react-native-svg';
 
 const SvgComponent = (props: SvgProps) => {
-  console.log('color', props.color);
   return (
     <Svg width={16} height={18} {...props}>
       <Path
