@@ -9,8 +9,9 @@ import * as React from 'react';
 import 'react-native-gesture-handler';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
 
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import TabBar from './src/globals/components/TabBar';
 import HomeScreen from './src/screens/home';
 import ProfileScreen from './src/screens/profile';
 
@@ -19,15 +20,15 @@ export type RootStackParamList = {
   Profile: undefined;
 };
 
-const RootStack = createStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator();
 
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator>
-        <RootStack.Screen name="Home" component={HomeScreen} />
-        <RootStack.Screen name="Profile" component={ProfileScreen} />
-      </RootStack.Navigator>
+      <Tab.Navigator tabBar={props => <TabBar {...props} />}>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
